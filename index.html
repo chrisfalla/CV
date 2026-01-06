@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +28,7 @@
             --muted: #475569;
             --hairline: rgba(15, 23, 42, 0.12);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -40,11 +41,11 @@
             -moz-osx-font-smoothing: grayscale;
             text-rendering: geometricPrecision;
         }
-        
+
         body {
             background: radial-gradient(1200px 600px at 10% 0%, rgb(var(--secondary-rgb) / 0.10), transparent 60%),
-                        radial-gradient(900px 500px at 90% 10%, rgb(var(--accent-rgb) / 0.10), transparent 55%),
-                        #f5f7fa;
+                radial-gradient(900px 500px at 90% 10%, rgb(var(--accent-rgb) / 0.10), transparent 55%),
+                #f5f7fa;
             color: var(--text);
             line-height: 1.65;
             padding: 20px;
@@ -56,7 +57,7 @@
             color: inherit;
             text-decoration: none;
         }
-        
+
         /* Estilos generales del CV */
         .cv-container {
             display: flex;
@@ -67,15 +68,15 @@
             overflow: hidden;
             border: 1px solid var(--hairline);
         }
-        
+
         .cv-header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
+            padding: 30px 40px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 30px;
             align-items: center;
-            text-align: center;
             position: relative;
             isolation: isolate;
         }
@@ -90,62 +91,77 @@
             pointer-events: none;
             z-index: -1;
         }
-        
+
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            margin-bottom: 20px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
             background-color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 60px;
-            color: var(--primary);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+            overflow: hidden;
+            flex-shrink: 0;
         }
-        
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
         .name-title {
-            margin-bottom: 10px;
+            margin-bottom: 0;
         }
-        
+
         .name {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             letter-spacing: -0.02em;
         }
-        
+
         .title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 300;
             opacity: 0.9;
         }
-        
+
         .contact-info {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 15px;
+            gap: 10px;
+            margin-top: 0;
         }
-        
+
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 15px;
+            gap: 6px;
+            font-size: 13px;
             opacity: 0.95;
-            padding: 6px 10px;
+            padding: 5px 10px;
             border-radius: 999px;
             background-color: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.12);
         }
-        
+
         .contact-item i {
-            font-size: 18px;
-            color: var(--accent);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         /* Links dentro del header (GitHub/LinkedIn) */
@@ -155,12 +171,13 @@
             text-underline-offset: 2px;
             overflow-wrap: anywhere;
         }
+
         .contact-item a:hover,
         .contact-item a:focus-visible {
             text-decoration-thickness: 2px;
             outline: none;
         }
-        
+
         /* Contenido principal */
         .cv-content {
             display: grid;
@@ -168,20 +185,20 @@
             gap: 24px;
             padding: 28px;
         }
-        
+
         .left-column {
             min-width: 0;
         }
-        
+
         .right-column {
             min-width: 0;
         }
-        
+
         /* Secciones comunes */
         .section {
             margin-bottom: 24px;
         }
-        
+
         .section-title {
             font-size: 18px;
             color: var(--primary);
@@ -193,11 +210,11 @@
             gap: 10px;
             letter-spacing: 0.02em;
         }
-        
+
         .section-title i {
             color: var(--secondary);
         }
-        
+
         /* Experiencia Laboral */
         .experience-item {
             margin-bottom: 18px;
@@ -211,20 +228,20 @@
         .experience-item:last-child {
             margin-bottom: 0;
         }
-        
+
         .job-title {
             font-size: 18px;
             font-weight: 600;
             color: var(--dark);
             margin-bottom: 5px;
         }
-        
+
         .company {
             color: var(--secondary);
             font-weight: 500;
             margin-bottom: 5px;
         }
-        
+
         .date {
             color: var(--gray);
             font-size: 14px;
@@ -233,7 +250,7 @@
             align-items: center;
             gap: 5px;
         }
-        
+
         .description {
             font-size: 15px;
             color: var(--muted);
@@ -256,7 +273,7 @@
         ul.description li::marker {
             color: rgba(26, 188, 156, 0.95);
         }
-        
+
         /* Habilidades */
         .skills-container {
             display: flex;
@@ -264,7 +281,7 @@
             gap: 8px;
             margin-top: 8px;
         }
-        
+
         .skill-tag {
             background-color: rgba(248, 249, 250, 0.85);
             padding: 4px 10px;
@@ -274,11 +291,11 @@
             border: 1px solid var(--hairline);
             border-left: 4px solid var(--accent);
         }
-        
+
         .skill-category {
             margin-bottom: 14px;
         }
-        
+
         .skill-category-title {
             font-weight: 600;
             color: var(--primary);
@@ -286,7 +303,7 @@
             font-size: 16px;
             letter-spacing: 0.01em;
         }
-        
+
         /* Idiomas y certificaciones */
         .language-item {
             display: flex;
@@ -294,29 +311,31 @@
             margin-bottom: 8px;
             padding-bottom: 8px;
         }
-        
+
         .certification-item {
             margin-bottom: 12px;
             padding-bottom: 10px;
             border-bottom: 1px dashed #eee;
         }
-        
+
         .language-item:last-child,
         .certification-item:last-child {
             border-bottom: none;
             padding-bottom: 0;
             margin-bottom: 0;
         }
-        
-        .language-name, .certification-name {
+
+        .language-name,
+        .certification-name {
             font-weight: 500;
         }
-        
-        .language-level, .certification-date {
+
+        .language-level,
+        .certification-date {
             color: var(--gray);
             font-size: 14px;
         }
-        
+
         /* Certificaciones - formato compacto */
         .certifications-list {
             display: flex;
@@ -324,7 +343,7 @@
             gap: 8px;
             margin-top: 10px;
         }
-        
+
         .cert-tag {
             background-color: var(--light-gray);
             padding: 5px 10px;
@@ -354,7 +373,7 @@
         .cert-link:hover {
             background-color: var(--primary);
         }
-        
+
         /* Botones */
         .button-container {
             display: flex;
@@ -363,7 +382,7 @@
             margin-top: 30px;
             padding: 20px 0;
         }
-        
+
         .btn {
             padding: 12px 25px;
             border-radius: var(--border-radius);
@@ -376,81 +395,103 @@
             border: none;
             font-size: 16px;
         }
-        
+
         .btn-primary {
             background-color: var(--secondary);
             color: white;
         }
-        
+
         .btn-secondary {
             background-color: var(--light-gray);
             color: var(--dark);
             border: 1px solid #ddd;
         }
-        
+
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .btn-primary:hover {
             background-color: var(--primary);
         }
-        
+
         .btn-secondary:hover {
             background-color: #e9ecef;
         }
-        
+
         /* Responsive */
         @media (max-width: 992px) {
             .cv-content {
                 grid-template-columns: 1fr;
             }
-            
-            .left-column, .right-column {
+
+            .left-column,
+            .right-column {
                 padding: 0;
                 border: none;
             }
-            
+
             .left-column {
                 margin-bottom: 30px;
             }
         }
-        
+
+        @media (max-width: 768px) {
+            .cv-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+
+            .header-content {
+                align-items: center;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+        }
+
         @media (max-width: 576px) {
             .cv-header {
                 padding: 20px;
             }
-            
-            .name {
-                font-size: 26px;
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
             }
-            
+
+            .name {
+                font-size: 24px;
+            }
+
             .title {
                 font-size: 18px;
             }
-            
+
             .contact-info {
                 flex-direction: column;
                 gap: 10px;
                 align-items: center;
             }
-            
+
             .cv-content {
                 padding: 20px;
             }
-            
+
             .button-container {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .btn {
                 width: 100%;
                 justify-content: center;
             }
         }
-        
+
         /* Estilos para impresión/PDF */
         @media print {
             @page {
@@ -469,7 +510,7 @@
                 max-width: none;
                 margin: 0;
             }
-            
+
             .cv-container {
                 box-shadow: none;
                 border: none;
@@ -482,106 +523,122 @@
             .experience-item {
                 background-color: white;
             }
-            
+
             .button-container {
                 display: none;
             }
-            
+
             .btn {
                 display: none;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="cv-container">
         <header class="cv-header">
             <div class="profile-img">
-                <i class="fas fa-user"></i>
+                <img src="foto-perfil.jpeg" alt="Christofer Falla Villarreal">
             </div>
-            <div class="name-title">
-                <h1 class="name">Christofer Falla Villarreal </h1>
-                <p class="title">Desarrollador Full-Stack</p>
-            </div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:cefalla03@gmail.com">christoferfallavillarreal@gmail.com</a>
+            <div class="header-content">
+                <div class="name-title">
+                    <h1 class="name">Christofer Falla Villarreal</h1>
+                    <p class="title">Desarrollador Full-Stack</p>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <a href="https://wa.me/50764aboratory" target="_blank">+507 3134046615</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Colombia</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <a href="https://github.com/chrisfalla" target="_blank" rel="noopener noreferrer" aria-label="GitHub: chrisfalla">
-                        github.com/chrisfalla
-                    </a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="https://www.linkedin.com/in/christofer-falla-villarreal-18ba592a2/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn: Christofer Falla Villarreal">
-                        Christofer Falla Villarreal 
-                    </a>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:christoferfallavillarreal@gmail.com">christoferfallavillarreal@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/573134046615" target="_blank">+57 313 404 6615</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Colombia</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/chrisfalla" target="_blank"
+                            rel="noopener noreferrer">github.com/chrisfalla</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/christofer-falla-villarreal-18ba592a2/" target="_blank"
+                            rel="noopener noreferrer">LinkedIn</a>
+                    </div>
                 </div>
             </div>
         </header>
-        
+
         <div class="cv-content">
             <div class="left-column">
                 <section class="section">
                     <h2 class="section-title"><i class="fas fa-bullseye"></i> Objetivo Profesional</h2>
-                    <p class="description">Desarrollador full-stack apasionado y autodidacta con experiencia en el desarrollo de aplicaciones web y móviles. Experto en tecnologías como HTML, CSS, JavaScript, Laravel, React Native, Node.js, Express, .NET, TypeScript, Bootstrap, Vite, npm y pnpm. Enfoque en arquitecturas limpias, metodologías ágiles (Scrum y Kanban), optimización de rendimiento y herramientas de BI como Power BI. Busco oportunidades para contribuir en equipos dinámicos y crecer profesionalmente en el sector tecnológico.</p>
+                    <p class="description">Desarrollador full-stack apasionado y autodidacta con experiencia en el
+                        desarrollo de aplicaciones web y móviles. Experto en tecnologías como HTML, CSS, JavaScript,
+                        Laravel, React Native, Node.js, Express, .NET, TypeScript, Bootstrap, Vite, npm y pnpm. Enfoque
+                        en arquitecturas limpias, metodologías ágiles (Scrum y Kanban), optimización de rendimiento y
+                        herramientas de BI como Power BI. Busco oportunidades para contribuir en equipos dinámicos y
+                        crecer profesionalmente en el sector tecnológico.</p>
                 </section>
-                
+
                 <section class="section">
                     <h2 class="section-title"><i class="fas fa-briefcase"></i> Experiencia Laboral</h2>
-                    
+
                     <div class="experience-item">
                         <h3 class="job-title">Pasante en Desarrollo</h3>
                         <p class="company">ORF SA ROA</p>
                         <p class="date"><i class="far fa-calendar"></i> 19 Agosto 2025 (6 meses)</p>
                         <ul class="description">
-                            <li>Documenté el backend en .NET y servicios web, incluyendo diagramas frontend para mejorar la comprensión y mantenimiento del código.</li>
+                            <li>Documenté el backend en .NET y servicios web, incluyendo diagramas frontend para mejorar
+                                la comprensión y mantenimiento del código.</li>
                             <li>Desarrollé soluciones con Power Apps y TypeScript para interfaces personalizadas.</li>
-                            <li>Implementé backend con Node.js y Express para un proyecto de e-commerce, enfocándome en la integración de APIs y seguridad.</li>
-                            <li>Creé tableros de visualización en Power BI para análisis de datos y documenté bases de datos, tablas y esquemas para optimizar consultas y rendimiento.</li>
+                            <li>Implementé backend con Node.js y Express para un proyecto de e-commerce, enfocándome en
+                                la integración de APIs y seguridad.</li>
+                            <li>Creé tableros de visualización en Power BI para análisis de datos y documenté bases de
+                                datos, tablas y esquemas para optimizar consultas y rendimiento.</li>
                         </ul>
                     </div>
-                    
+
                     <div class="experience-item">
                         <h3 class="job-title">Desarrollador de Proyectos</h3>
                         <p class="company">Servicio Nacional de Aprendizaje (SENA)</p>
                         <p class="date"><i class="far fa-calendar"></i> Julio 2024 - Diciembre 2024 (6 meses)</p>
                         <ul class="description">
-                            <li>Participé en un proyecto de turismo utilizando React Native para el desarrollo de aplicaciones móviles híbridas.</li>
-                            <li>Construí el backend con Node.js y Express, aplicando Clean Architecture para una estructura modular y mantenible.</li>
-                            <li>Integré servicios como Google Maps, Redux para manejo de estado, y APIs REST para consumo y despliegue de datos.</li>
-                            <li>Utilicé Expo para el desarrollo y deployment de la app móvil, y apliqué metodologías ágiles como Scrum con tableros Kanban para la gestión del proyecto.</li>
+                            <li>Participé en un proyecto de turismo utilizando React Native para el desarrollo de
+                                aplicaciones móviles híbridas.</li>
+                            <li>Construí el backend con Node.js y Express, aplicando Clean Architecture para una
+                                estructura modular y mantenible.</li>
+                            <li>Integré servicios como Google Maps, Redux para manejo de estado, y APIs REST para
+                                consumo y despliegue de datos.</li>
+                            <li>Utilicé Expo para el desarrollo y deployment de la app móvil, y apliqué metodologías
+                                ágiles como Scrum con tableros Kanban para la gestión del proyecto.</li>
                         </ul>
                     </div>
-                    
+
                     <div class="experience-item">
                         <h3 class="job-title">Desarrollador Web</h3>
                         <p class="company">Servicio Nacional de Aprendizaje (SENA)</p>
                         <p class="date"><i class="far fa-calendar"></i> Enero 2024 - Junio 2024 (6 meses)</p>
                         <ul class="description">
-                            <li>Desarrollé una página web utilizando HTML, CSS y JavaScript para mejorar la interfaz de usuario y la experiencia del usuario.</li>
-                            <li>Implementé el backend con Laravel y base de datos PostgreSQL, enfocándome en el diseño de la arquitectura y la optimización del rendimiento.</li>
-                            <li>Colaboré en el testing y depuración para asegurar la funcionalidad y escalabilidad del sitio web.</li>
+                            <li>Desarrollé una página web utilizando HTML, CSS y JavaScript para mejorar la interfaz de
+                                usuario y la experiencia del usuario.</li>
+                            <li>Implementé el backend con Laravel y base de datos PostgreSQL, enfocándome en el diseño
+                                de la arquitectura y la optimización del rendimiento.</li>
+                            <li>Colaboré en el testing y depuración para asegurar la funcionalidad y escalabilidad del
+                                sitio web.</li>
                         </ul>
                     </div>
                 </section>
             </div>
-            
+
             <div class="right-column">
                 <section class="section">
                     <h2 class="section-title"><i class="fas fa-code"></i> Habilidades Técnicas</h2>
-                    
+
                     <div class="skill-category">
                         <h3 class="skill-category-title">Lenguajes y Frameworks</h3>
                         <div class="skills-container">
@@ -599,29 +656,16 @@
                             <span class="skill-tag">pnpm</span>
                         </div>
                     </div>
-                    
+
                     <div class="skill-category">
                         <h3 class="skill-category-title">Bases de Datos</h3>
                         <div class="skills-container">
                             <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Power BI</span>
                             <span class="skill-tag">SQL</span>
                         </div>
                     </div>
-                    
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">Herramientas</h3>
-                        <div class="skills-container">
-                            <span class="skill-tag">Google Maps</span>
-                            <span class="skill-tag">Redux</span>
-                            <span class="skill-tag">Expo</span>
-                            <span class="skill-tag">Power Apps</span>
-                            <span class="skill-tag">Power BI</span>
-                            <span class="skill-tag">Postman</span>
-                            <span class="skill-tag">IA - Agents</span>
 
-                        </div>
-                    </div>
-                    
                     <div class="skill-category">
                         <h3 class="skill-category-title">Arquitecturas y Metodologías</h3>
                         <div class="skills-container">
@@ -632,7 +676,16 @@
                             <span class="skill-tag">Kanban</span>
                         </div>
                     </div>
-                    
+
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Herramientas</h3>
+                        <div class="skills-container">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Postman</span>
+                            <span class="skill-tag">IA - Agents</span>
+                        </div>
+                    </div>
+
                     <div class="skill-category">
                         <h3 class="skill-category-title">Otras Habilidades</h3>
                         <div class="skills-container">
@@ -645,10 +698,10 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="section">
                     <h2 class="section-title"><i class="fas fa-certificate"></i> Certificaciones y Cursos</h2>
-                    
+
                     <div class="certifications-list">
                         <span class="cert-tag">Aplicación de Estándar Internacional en la Dirección de Proyectos</span>
                         <span class="cert-tag">Aplicación de Estándar Internacional en la Dirección de Proyectos 1</span>
@@ -664,28 +717,29 @@
                         <span class="cert-tag">Proyecto Integración Hardware y Software con IoT - Módulo Exploración</span>
                         <span class="cert-tag">Proyecto Integración Hardware y Software con IoT - Módulo Simulación</span>
                     </div>
-                    
-                    <a href="https://drive.google.com/drive/folders/17U0hb1NQMElOcSwq45ou2QfjLy3I13Hz" target="_blank" rel="noopener noreferrer" class="cert-link">
+
+                    <a href="https://drive.google.com/drive/folders/17U0hb1NQMElOcSwq45ou2QfjLy3I13Hz" target="_blank"
+                        rel="noopener noreferrer" class="cert-link">
                         <i class="fas fa-external-link-alt"></i> Ver todos los certificados
                     </a>
                 </section>
-                
+
                 <section class="section">
                     <h2 class="section-title"><i class="fas fa-language"></i> Idiomas</h2>
-                    
+
                     <div class="language-item">
                         <span class="language-name">Español</span>
                         <span class="language-level">Nativo</span>
                     </div>
-                    
+
                     <div class="language-item">
                         <span class="language-name">Inglés</span>
-                        <span class="language-level">[Nivel, por ejemplo, Intermedio]</span>
+                        <span class="language-level">Intermedio</span>
                     </div>
                 </section>
             </div>
         </div>
-        
+
         <div class="button-container">
             <button class="btn btn-primary" onclick="window.print()">
                 <i class="fas fa-print"></i> Imprimir / Guardar como PDF
@@ -694,9 +748,9 @@
                 <i class="fas fa-copy"></i> Copiar HTML
             </button>
         </div>
-    </div>
+</div>
 
-    <script>
+<script>
         // Función para copiar el código HTML al portapapeles
         function copyToClipboard() {
             const htmlContent = document.documentElement.outerHTML;
@@ -708,7 +762,8 @@
                     console.error('Error al copiar: ', err);
                 });
         }
-        
-    </script>
+
+</script>
 </body>
+
 </html>
