@@ -26,12 +26,17 @@ const path = require('path');
     // Esperar a que todo cargue completamente
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    // Obtener dimensiones del contenido
+    // Obtener dimensiones del contenido completo
     const dimensions = await page.evaluate(() => {
-        const container = document.querySelector('.cv-container');
         return {
-            width: container.scrollWidth,
-            height: container.scrollHeight + 50  // Agregar padding extra para evitar recortes
+            width: Math.max(
+                document.body.scrollWidth,
+                document.documentElement.scrollWidth
+            ),
+            height: Math.max(
+                document.body.scrollHeight,
+                document.documentElement.scrollHeight
+            ) + 20  // Mínimo padding para evitar recortes
         };
     });
     
