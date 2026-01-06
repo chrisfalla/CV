@@ -164,9 +164,9 @@
         /* Contenido principal */
         .cv-content {
             display: grid;
-            grid-template-columns: 1.7fr 1fr;
-            gap: 28px;
-            padding: 32px;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 24px;
+            padding: 28px;
         }
         
         .left-column {
@@ -179,7 +179,7 @@
         
         /* Secciones comunes */
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 24px;
         }
         
         .section-title {
@@ -200,12 +200,12 @@
         
         /* Experiencia Laboral */
         .experience-item {
-            margin-bottom: 22px;
+            margin-bottom: 18px;
             background-color: var(--light-gray);
             border: 1px solid var(--hairline);
             border-left: 5px solid rgb(var(--accent-rgb) / 0.85);
             border-radius: 12px;
-            padding: 16px 16px 14px 16px;
+            padding: 14px;
         }
 
         .experience-item:last-child {
@@ -244,12 +244,13 @@
         }
 
         ul.description {
-            margin-top: 10px;
-            padding-left: 18px;
+            margin-top: 8px;
+            padding-left: 16px;
         }
 
         ul.description li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            font-size: 14px;
         }
 
         ul.description li::marker {
@@ -260,22 +261,22 @@
         .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
+            gap: 8px;
+            margin-top: 8px;
         }
         
         .skill-tag {
             background-color: rgba(248, 249, 250, 0.85);
-            padding: 6px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
-            font-size: 14px;
+            font-size: 13px;
             color: var(--dark);
             border: 1px solid var(--hairline);
             border-left: 4px solid var(--accent);
         }
         
         .skill-category {
-            margin-bottom: 20px;
+            margin-bottom: 14px;
         }
         
         .skill-category-title {
@@ -290,10 +291,8 @@
         .language-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed #eee;
-            gap: 12px;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
         }
         
         .certification-item {
@@ -316,6 +315,25 @@
         .language-level, .certification-date {
             color: var(--gray);
             font-size: 14px;
+        }
+        
+        /* Certificaciones - formato compacto */
+        .certifications-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .cert-tag {
+            background-color: var(--light-gray);
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: var(--dark);
+            border: 1px solid var(--hairline);
+            border-left: 3px solid var(--secondary);
+            line-height: 1.4;
         }
         
         /* Botones */
@@ -469,11 +487,11 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <span>christoferfallavillarreal@gmail.com</span>
+                    <a href="mailto:cefalla03@gmail.com">christoferfallavillarreal@gmail.com</a>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <span>+57 3134046615</span>
+                    <a href="https://wa.me/50764aboratory" target="_blank">+507 3134046615</a>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
@@ -555,7 +573,6 @@
                             <span class="skill-tag">React Native</span>
                             <span class="skill-tag">Node.js</span>
                             <span class="skill-tag">Express</span>
-                            <span class="skill-tag">.NET</span>
                             <span class="skill-tag">TypeScript</span>
                             <span class="skill-tag">Bootstrap</span>
                             <span class="skill-tag">Vite</span>
@@ -580,6 +597,9 @@
                             <span class="skill-tag">Expo</span>
                             <span class="skill-tag">Power Apps</span>
                             <span class="skill-tag">Power BI</span>
+                            <span class="skill-tag">Postman</span>
+                            <span class="skill-tag">IA - Agents</span>
+
                         </div>
                     </div>
                     
@@ -587,6 +607,7 @@
                         <h3 class="skill-category-title">Arquitecturas y Metodologías</h3>
                         <div class="skills-container">
                             <span class="skill-tag">Clean Architecture</span>
+                            <span class="skill-tag">MVC</span>
                             <span class="skill-tag">API REST</span>
                             <span class="skill-tag">Scrum</span>
                             <span class="skill-tag">Kanban</span>
@@ -609,29 +630,21 @@
                 <section class="section">
                     <h2 class="section-title"><i class="fas fa-certificate"></i> Certificaciones y Cursos</h2>
                     
-                    <div class="certification-item">
-                        <span class="certification-name">Certificado Python (Universidad de la Sabana)</span>
+                    <div class="certifications-list">
+                        <span class="cert-tag">Aplicación de Estándar Internacional en la Dirección de Proyectos</span>
+                        <span class="cert-tag">Aplicación de Estándar Internacional en la Dirección de Proyectos 1</span>
+                        <span class="cert-tag">Automatización y Principios del Lean Manufacturing de Logística 4.0</span>
+                        <span class="cert-tag">Caracterización del Mercado Objetivo</span>
+                        <span class="cert-tag">Certificado Python (Universidad de la Sabana)</span>
+                        <span class="cert-tag">Curso Udemy Frontend</span>
+                        <span class="cert-tag">Desarrollo del Plan de Gestión del Cronograma con Herramientas LEGO</span>
+                        <span class="cert-tag">Despertando el Arte de Emprender con Gestión de Proyectos (LEGO)</span>
+                        <span class="cert-tag">Fundamentos de Diseño Gráfico</span>
+                        <span class="cert-tag">Gestión y Dirección de Proyectos Apoyados en Herramientas LEGO</span>
+                        <span class="cert-tag">Nuevas Tecnologías y Digitalización de Logística 4.0</span>
+                        <span class="cert-tag">Proyecto Integración Hardware y Software con IoT - Módulo Exploración</span>
+                        <span class="cert-tag">Proyecto Integración Hardware y Software con IoT - Módulo Simulación</span>
                     </div>
-                    
-                    <div class="certification-item">
-                        <span class="certification-name">Curso Udemy Frontend</span>
-                    </div>
-                    
-                    <div class="certification-item">
-                        <span class="certification-name">Aplicación de Estándar Internacional en la Dirección de Proyectos</span>
-                    </div>
-                    
-                    <div class="certification-item">
-                        <span class="certification-name">Automatización y Principios del Lean Manufacturing</span>
-                    </div>
-                    
-                    <div class="certification-item">
-                        <span class="certification-name">Proyecto Integración de Hardware y Software con IoT</span>
-                    </div>
-                    
-                    <p class="description" style="margin-top: 10px; font-size: 14px;">
-                        <strong>Nota:</strong> Se incluyen otras certificaciones como Caracterización del Mercado Objetivo, Gestión de Proyectos con Lego, Fundamentos de Diseño Gráfico, entre otros.
-                    </p>
                 </section>
                 
                 <section class="section">
