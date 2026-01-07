@@ -1,10 +1,14 @@
-const puppeteer = require('puppeteer');
-const path = require('path');
+import { launch } from 'puppeteer';
+import { dirname, resolve as _resolve } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 (async () => {
     console.log('Iniciando generación de PDF...');
     
-    const browser = await puppeteer.launch({
+    const browser = await launch({
         headless: true
     });
     
@@ -13,12 +17,12 @@ const path = require('path');
     // Configurar viewport grande para capturar todo el contenido
     await page.setViewport({
         width: 1200,
-        height: 2000,
+        height: 1500,
         deviceScaleFactor: 2
     });
     
     // Cargar el archivo HTML
-    const htmlPath = 'file://' + path.resolve(__dirname, 'index.html');
+    const htmlPath = 'file://' + _resolve(__dirname, 'index.html');
     await page.goto(htmlPath, {
         waitUntil: 'networkidle0'
     });
